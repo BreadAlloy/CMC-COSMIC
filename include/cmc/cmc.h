@@ -1797,7 +1797,7 @@ double potential_serial(double r);
 double fastpotential(double r, long kmin, long kmax);
 long potential_calculate(void);
 long potential_calculate2(void);
-MPI_Comm inv_comm_create();
+MPI_Comm inv_comm_create(int procs, MPI_Comm old_comm);
 
 /* Bharath: Timing Functions */ 
 double timeStartSimple();
