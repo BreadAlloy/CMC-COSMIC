@@ -1,3 +1,6 @@
+# This fork
+The goal for this fork is to refactor this code to run on gpu using cuda
+
 # The Cluster Monte Carlo Code, CMC-COSMIC
 A Henon style orbit-averaging code for collisional stellar dynamics, with all the necessary physics for modeling the long-term evolution of dense star clusters.  
 
