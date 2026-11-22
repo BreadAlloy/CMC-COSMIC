@@ -86,7 +86,7 @@ void bh_rand_walk(long index, double v[4], double vcm[4], double beta, double dt
     int g_index;
 	g_index = get_global_idx(index);
 
-	char fname[80];
+	char fname[30 + sizeof(outprefix)];
 	long is_in_ids;
 	double Trel, n_local, M2ave; 
 	double W, n_steps= 1.;
@@ -250,7 +250,7 @@ double calc_P_orb(long index)
 	gsl_integration_workspace *w;
 	gsl_integration_qaws_table *tab;
 	gsl_function F;
-    struct Interval star_interval;
+    Interval star_interval;
     int g_index;
     g_index = get_global_idx(index);
 
@@ -365,7 +365,7 @@ double calc_P_orb(long index)
 
 		// Print error if there's a problem with the integration, and return Porbapprox
 		if (status) {
-			eprintf("gsl_integration_qa[g,w]s failed (gsl_errno=%d, index=%d, g_index=%d, orbit_rs.rp=%e, orbit_rs.ra=%e); check cmc_bhlosscone.c for [g,w] routine; returning Porbapprox=%e\n", status, index, g_index, orbit_rs.rp, orbit_rs.ra, Porbapprox);
+			eprintf("gsl_integration_qa[g,w]s failed (gsl_errno=%d, index=%ld, g_index=%d, orbit_rs.rp=%e, orbit_rs.ra=%e); check cmc_bhlosscone.c for [g,w] routine; returning Porbapprox=%e\n", status, index, int(g_index), orbit_rs.rp, orbit_rs.ra, Porbapprox);
 			return(Porbapprox);
 		}
 

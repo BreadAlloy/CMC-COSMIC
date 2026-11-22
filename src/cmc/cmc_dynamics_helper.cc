@@ -1478,7 +1478,7 @@ void binint_log_obj(fb_obj_t *obj, fb_units_t units)
 		snprintf(idstring1, FB_MAX_STRING_LENGTH, "%ld", obj->id[0]);
 		for (i=1; i<obj->ncoll; i++) {
 			snprintf(dumstring, FB_MAX_STRING_LENGTH, ":%ld", obj->id[i]);
-			strncat(idstring1, dumstring, FB_MAX_STRING_LENGTH);
+			strncat(idstring1, dumstring, FB_MAX_STRING_LENGTH - 1);
 		}
 		/* then print to log */
 		parafprintf(binintfile, "type=single m=%g R=%g Eint=%g id=%s ktype=%d\n", obj->m*units.m/MSUN, obj->R*units.l/RSUN, obj->Eint*units.E, idstring1, obj->k_type);
@@ -1487,12 +1487,12 @@ void binint_log_obj(fb_obj_t *obj, fb_units_t units)
 		snprintf(idstring1, FB_MAX_STRING_LENGTH, "%ld", obj->obj[0]->id[0]);
 		for (i=1; i<obj->obj[0]->ncoll; i++) {
 			snprintf(dumstring, FB_MAX_STRING_LENGTH, ":%ld", obj->obj[0]->id[i]);
-			strncat(idstring1, dumstring, FB_MAX_STRING_LENGTH);
+			strncat(idstring1, dumstring, FB_MAX_STRING_LENGTH - 1);
 		}
 		snprintf(idstring2, FB_MAX_STRING_LENGTH, "%ld", obj->obj[1]->id[0]);
 		for (i=1; i<obj->obj[1]->ncoll; i++) {
 			snprintf(dumstring, FB_MAX_STRING_LENGTH, ":%ld", obj->obj[1]->id[i]);
-			strncat(idstring2, dumstring, FB_MAX_STRING_LENGTH);
+			strncat(idstring2, dumstring, FB_MAX_STRING_LENGTH - 1);
 		}
 		/* then print to log */
 		parafprintf(binintfile, "type=binary m0=%g m1=%g R0=%g R1=%g Eint1=%g Eint2=%g id0=%s id1=%s a=%g e=%g ktype1=%d ktype2=%d\n", 
@@ -1515,17 +1515,17 @@ void binint_log_obj(fb_obj_t *obj, fb_units_t units)
 		snprintf(idstring1, FB_MAX_STRING_LENGTH, "%ld", obj->obj[bid]->obj[0]->id[0]);
 		for (i=1; i<obj->obj[bid]->obj[0]->ncoll; i++) {
 			snprintf(dumstring, FB_MAX_STRING_LENGTH, ":%ld", obj->obj[bid]->obj[0]->id[i]);
-			strncat(idstring1, dumstring, FB_MAX_STRING_LENGTH);
+			strncat(idstring1, dumstring, FB_MAX_STRING_LENGTH - 1);
 		}
 		snprintf(idstring2, FB_MAX_STRING_LENGTH, "%ld", obj->obj[bid]->obj[1]->id[0]);
 		for (i=1; i<obj->obj[bid]->obj[1]->ncoll; i++) {
 			snprintf(dumstring, FB_MAX_STRING_LENGTH, ":%ld", obj->obj[bid]->obj[1]->id[i]);
-			strncat(idstring2, dumstring, FB_MAX_STRING_LENGTH);
+			strncat(idstring2, dumstring, FB_MAX_STRING_LENGTH - 1);
 		}
 		snprintf(idstring3, FB_MAX_STRING_LENGTH, "%ld", obj->obj[sid]->id[0]);
 		for (i=1; i<obj->obj[sid]->ncoll; i++) {
 			snprintf(dumstring, FB_MAX_STRING_LENGTH, ":%ld", obj->obj[sid]->id[i]);
-			strncat(idstring3, dumstring, FB_MAX_STRING_LENGTH);
+			strncat(idstring3, dumstring, FB_MAX_STRING_LENGTH - 1);
 		}
 		/* then print to log */
 		parafprintf(binintfile, "type=triple min0=%g min1=%g mout=%g Rin0=%g Rin1=%g Rout=%g Eintin0=%g Eintin1=%g Eintout=%g idin1=%s idin2=%s idout=%s ain=%g aout=%g ein=%g eout=%g ktypein1=%d ktypein1=%d ktypeout=%d\n",

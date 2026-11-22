@@ -19,6 +19,7 @@ project(CMC VERSION 1.0.0 LANGUAGES CXX C Fortran)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-missing-field-initializers -Wno-write-strings")
 
 # CMC's C sources predate C23 and rely on pre-C23 semantics — notably empty
 # parameter lists () meaning "unspecified args" rather than (void). GCC 15

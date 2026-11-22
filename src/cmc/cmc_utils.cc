@@ -1,6 +1,7 @@
 /* -*- linux-c -*- */
 /* vi: set filetype=c.doxygen: */
 
+#include <cassert>
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
@@ -460,7 +461,7 @@ long DynamicalFrictionTimescale(){
 	} else {
 		return(0);
 	}
-
+	assert(false); //No return value from times long gone
 }
 
 /**

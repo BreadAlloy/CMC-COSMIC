@@ -42,7 +42,6 @@ fb_ret_t binbin(double *t, long k, long kp, double W, double bmax, fb_hier_t *hi
 	int j;
 	long jbin, jbinp;
 	double vc, b, rtid, m0, m1, a0, a1, e0, e1, m00, m01, m10, m11;
-	double chi1,chi2,chi3,chi4;
     int num_bh=0;
 	fb_units_t fb_units;
 	fb_input_t input;

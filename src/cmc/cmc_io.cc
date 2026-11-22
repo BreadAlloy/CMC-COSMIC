@@ -72,12 +72,12 @@ void print_2Dsnapshot(void)
 {
 	long i, j;
 	j=0;
-	char outfile[100];
+	char outfile[30 + sizeof(outprefix)];
         char tablename[20];
 	if (SNAPSHOTTING) {
 		// open file for 2D snapshot 
 	        sprintf(outfile, "%s.snapshots.h5", outprefix);
-	        sprintf(tablename, "%d(t=%.8g)", snap_num,TotalTime);
+	        sprintf(tablename, "%ld(t=%.8g)", snap_num,TotalTime);
 		write_snapshot(outfile, 0, tablename);
 		// global counter for snapshot output file 
 		snap_num++;
@@ -90,7 +90,7 @@ void print_2Dsnapshot(void)
 */
 void print_bh_snapshot(void) {
 	long i, j;
-	char outfile[100];
+	char outfile[50 + sizeof(outprefix)];
         char tablename[20];
 	
 	if (BH_SNAPSHOTTING) {
@@ -705,9 +705,10 @@ void PrintParaFileOutput(void)
 		 mpi_para_file_write(mpi_pulsarfile_wrbuf, &mpi_pulsarfile_len, &mpi_pulsarfile_ofst_total, &mpi_pulsarfile);
 
 /* CSY */
-    if (WRITE_MOREPULSAR_INFO)
+    if (WRITE_MOREPULSAR_INFO){
         mpi_para_file_write(mpi_morepulsarfile_wrbuf, &mpi_morepulsarfile_len, &mpi_morepulsarfile_ofst_total, &mpi_morepulsarfile);
         mpi_para_file_write(mpi_newnsfile_wrbuf, &mpi_newnsfile_len, &mpi_newnsfile_ofst_total, &mpi_newnsfile);
+	}
 
     if (TDE_SPINUP){
         mpi_para_file_write(mpi_tdefile_wrbuf, &mpi_tdefile_len, &mpi_tdefile_ofst_total, &mpi_tdefile);
@@ -3045,7 +3046,7 @@ void write_snapshot(char *filename, int bh_only, char *tablename) {
             compress = 0;
 		}
 
-        for (ii = 0; ii < NFIELDS; ++ii){
+        for (ii = 0; ii < int(NFIELDS); ++ii){
           field_type[ii] = H5T_NATIVE_DOUBLE;
         }
         field_type[0] = H5T_NATIVE_LONG;
@@ -3886,9 +3887,9 @@ void load_global_vars(restart_struct_t *rest){
 
 void save_restart_file(){
 	FILE *my_restart_file;
-	char restart_file[200];
-	char delete_file[200];
 	char restart_folder[200];
+	char restart_file[100+sizeof(restart_folder)+sizeof(outprefix)];
+	char delete_file[100+sizeof(restart_folder)+sizeof(outprefix)];
 	int i,j;
 	int num_bin=0;
 	struct stat folder_thing = {0};
@@ -3943,8 +3944,8 @@ void save_restart_file(){
 
 void load_restart_file(){
 	FILE *my_restart_file;
-	char restart_file[200];
 	char restart_folder[200];
+	char restart_file[100 + sizeof(restart_folder) + sizeof(oldoutprefix)];
 	int i,j;
 	int num_bin=0;
 	struct stat folder_thing = {0};

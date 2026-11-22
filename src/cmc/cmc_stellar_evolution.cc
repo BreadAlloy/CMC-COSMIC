@@ -218,7 +218,7 @@ void stellar_evolution_init(void){
 
   /* set collisions matrix */
   bse_instar();
-  dprintf("se_init: %g %g %g %d %g %g %g %d %d %d %d %d %d %g %d %g %g %g %g %g %g\n", BSE_NETA, BSE_BWIND, BSE_HEWIND, BSE_WINDFLAG, BSE_PISN, BSE_ALPHA1, BSE_LAMBDAF, BSE_CEFLAG, BSE_TFLAG, BSE_IFFLAG, BSE_WDFLAG, BSE_RTMSFLAG, BSE_BHFLAG, BSE_REMNANTFLAG, BSE_MXNS, BSE_IDUM, BSE_SIGMA, BSE_BHSIGMAFRAC, BSE_BETA, BSE_EDDFAC, BSE_GAMMA, BSE_POLAR_KICK_ANGLE);
+  dprintf("se_init: %g %g %g %d %g %g %g %d %d %d %d %d %d %d %g %d %g %g %g %g %g %g\n", BSE_NETA, BSE_BWIND, BSE_HEWIND, BSE_WINDFLAG, BSE_PISN, BSE_ALPHA1, BSE_LAMBDAF, BSE_CEFLAG, BSE_TFLAG, BSE_IFFLAG, BSE_WDFLAG, BSE_RTMSFLAG, BSE_BHFLAG, BSE_REMNANTFLAG, BSE_MXNS, BSE_IDUM, BSE_SIGMA, BSE_BHSIGMAFRAC, BSE_BETA, BSE_EDDFAC, BSE_GAMMA, BSE_POLAR_KICK_ANGLE);
 
   for (k=1; k<=mpiEnd-mpiBegin+1; k++) {
     long g_k = get_global_idx(k);
@@ -474,7 +474,7 @@ void do_stellar_evolution(gsl_rng *rng)
 		  /*If we've got a large MS star, we need to reduce the timestep, otherwise
 		   * we miss the transition from MS to HG to giant, and won't start applying
 		   * winds for massive stars at the right time*/
-		  if((star[k].se_k <= 1 || star[k].se_k == 7) & star[k].se_zams_mass > BSE_PTS1_HIGHMASS_CUTOFF){
+		  if((star[k].se_k <= 1 || star[k].se_k == 7) && (star[k].se_zams_mass > BSE_PTS1_HIGHMASS_CUTOFF)){
 			  bse_set_pts1(BSE_PTS1/10.);
 			  reduced_timestep = 1;
 		  }
@@ -2034,7 +2034,7 @@ void integrate_a_e_peters_eqn(long kb){
 		}
 
 		/* Make sure the integrator does what it says it does...*/
-		if(status != GSL_SUCCESS | y[0] != y[0]){
+		if((status != GSL_SUCCESS) || (y[0] != y[0])){
 		    eprintf("GSL Integrator for the Peters equations failed; yell at Carl\n");
 		    exit_cleanly(-1, __FUNCTION__);
 			break;
