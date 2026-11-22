@@ -1,7 +1,7 @@
 /* vi: set filetype=c.doxygen: */
 
 /* Contains all MPI related variables and functions */
-#include <mpi.h>
+#include <openmpi/mpi.h>
 #include <stdio.h>
 
 void mpiFindIndices( long N, int blkSize, int i, int* mpiStart, int* mpiEnd );
