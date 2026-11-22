@@ -121,3 +121,9 @@ option(BUILD_COSMIC "Use pip to build the subrepository version of COSMIC" OFF)
 # Internal products
 
 add_subdirectory(src)
+
+# So that clangd sees things done by cmake
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+if(EXISTS ${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json) # It gets made after finshing execution of this cmake, configuring twice should properly make the link
+    file(CREATE_LINK ${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json ${CMAKE_CURRENT_SOURCE_DIR}/compile_commands.json)
+endif()

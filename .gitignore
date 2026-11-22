@@ -9,6 +9,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
+out/
 build/
 develop-eggs/
 dist/
@@ -108,3 +109,7 @@ ENV/
 
 # macOs hidden system files
 .DS_Store
+
+#local developement helpers
+.vscode/
+compile_commands.json
