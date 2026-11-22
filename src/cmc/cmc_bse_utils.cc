@@ -2,8 +2,9 @@
 
 #include "cmc.h"
 #include "cmc_vars.h"
+extern "C"{
 #include "bse_wrap.h" 
-
+}
 /**
 * @brief ?
 *

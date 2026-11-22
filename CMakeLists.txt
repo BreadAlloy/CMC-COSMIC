@@ -15,7 +15,7 @@ foreach(policy
   endif()
 endforeach()
 
-project(CMC VERSION 1.0.0 LANGUAGES C Fortran)
+project(CMC VERSION 1.0.0 LANGUAGES CXX C Fortran)
 
 # CMC's C sources predate C23 and rely on pre-C23 semantics — notably empty
 # parameter lists () meaning "unspecified args" rather than (void). GCC 15

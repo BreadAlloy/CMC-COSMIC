@@ -341,7 +341,7 @@ struct star_coords get_position(long index, double E, double J, double old_r, or
 void debug_msg_orbit_new_inside_sqrt(double actual_rmin, double rmin, double inside_sqrt,
     long k, int ismin) {
   double rk, rk1;
-  char *label;
+  const char *label;
 
   label= ismin? "min": "max";
 
@@ -389,7 +389,7 @@ void debug_msg_supp_mpi_info(char *msg, int proc, long g_si, long si,
 */
 void debug_msg_orbit_new_outside_interval(long si, double rmin, double rmin_new,
     long k, double rk, double rk1, int ismin, double E, double J) {
-  char *label;
+  const char *label;
 
   label= ismin? "min": "max";
 

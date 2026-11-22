@@ -1238,6 +1238,7 @@ double compute_tidal_boundary(void){
 */
 void central_calculate(void)
 {
+        // KK: To by trafiło jako __shared__
 	double m=0.0, *rhoj, mrho, Vrj, rhojsum, Msincentral, Mbincentral, Vcentral, rcentral;
 	long J=6, i, j, jmin, jmax, nave, Ncentral;
 	double rhoj2sum;
@@ -1256,6 +1257,7 @@ void central_calculate(void)
 		exit_cleanly(-1, __FUNCTION__);
 	}
 
+	// KK: rhoj nie opuszcza tej funkcji,
 	/* allocate array for local density calculations */
 	rhoj = (double *) malloc((nave+1) * sizeof(double));
 
@@ -1277,6 +1279,8 @@ void central_calculate(void)
 	   Casertano & Hut (1985) only rho and rc are analyzed and tested */
 	rhojsum = 0.0;
 	rhoj2sum = 0.0;
+	
+	// KK: poniżej globalne
 	central.rho = 0.0;   /* density-weighted density from Eq. II.5 of Casertano & Hut (1985), with estimator bias correction (see below) */
 	central.v_rms = 0.0; /* root-mean-squared density-weighted velocity */
 	central.rc = 0.0;    /* density-weighted core radius from Eq. II.4 of Casertano & Hut (1985) */
@@ -1293,6 +1297,7 @@ void central_calculate(void)
 		rc_nb += sqr(rhoj[i] * star_r[i]);
 		central.m_ave += rhoj[i] * star_m[i] * madhoc;
 	}
+	// KK: znowu wczyscy mają to samo
 
 
 //MPI: This reduce gives round-off errors which affect the timestep mildly. So summing up in order.
@@ -1308,6 +1313,7 @@ void central_calculate(void)
 
     MPI_Status stat;
 
+    // KK: zamienic w reduce chyba można
     if(myid!=0)
     MPI_Send(&central.v_rms, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
     else
@@ -1437,6 +1443,8 @@ void central_calculate(void)
 
 	free(buf_bcast_long);
 	timeEndSimple(tmpTimeStart, &t_comm);
+
+        // KK: wszyscy maja to samo znowu
 
 	/* object quantities */
 	rcentral = star_r[Ncentral + 1];

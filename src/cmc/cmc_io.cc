@@ -3056,7 +3056,7 @@ void write_snapshot(char *filename, int bh_only, char *tablename) {
         field_type[17] = H5T_NATIVE_INT;
         field_type[18] = H5T_NATIVE_INT;
         /* Define an array of Particles */
-        Snapshot p_data[1] = {525,0.17924226,3.0778513,0.19755779,0.27799505,-0.15376079,0.85562742,-100.,-100.,-100.,-100,-100,-100.,-100.,0,0.006673921,0.19985968,-100,-100,-100.,-100.,-100.,-100,-100,-100,-0.211915956684,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,17.161,0,0.0000};
+        Snapshot p_data[1] = {525,0.17924226,3.0778513,0.19755779,0.27799505,-0.15376079,0.85562742,-100,-100.,-100.,-100,-100,-100.,-100.,0,0.006673921,0.19985968,-100,-100,-100.,-100.,-100.,-100,-100,-100,-0.211915956684,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,0.00000,17.161,0,0.0000};
         /* Calculate the size and the offsets of our struct members in memory */
         size_t dst_size =  sizeof( Snapshot );
         size_t dst_offset[NFIELDS] = {
@@ -3228,7 +3228,7 @@ void write_snapshot(char *filename, int bh_only, char *tablename) {
 				}
 
                         //Snapshot all_objects[NRECORDS];
-                        Snapshot* all_objects = malloc(NRECORDS * sizeof(Snapshot));
+                        Snapshot* all_objects = (Snapshot*)malloc(NRECORDS * sizeof(Snapshot));
                         if (all_objects == NULL) {
                             eprintf("Failed to allocate memory for %ld snapshot objects\n", NRECORDS);
                             exit_cleanly(-1,__FUNCTION__);
@@ -3515,7 +3515,7 @@ void load_dynamical_friction_data()
 
 		while ((bytes = fread(buffer, 1, sizeof(buffer) - 1, fp))) {
 			lastchar = buffer[bytes - 1];
-			for (c = buffer; (c = memchr(c, '\n', bytes - (c - buffer))); c++) {
+			for (c = (char*)buffer; (c = (char*)memchr(c, '\n', bytes - (c - (char*)buffer))); c++) {
 				DF_num_max++;
 			}
 		}
@@ -3616,7 +3616,7 @@ void load_tidal_tensor()
 
 		while ((bytes = fread(buffer, 1, sizeof(buffer) - 1, fp))) {
 			lastchar = buffer[bytes - 1];
-			for (c = buffer; (c = memchr(c, '\n', bytes - (c - buffer))); c++) {
+			for (c = (char*)buffer; (c = (char*)memchr(c, '\n', bytes - (c - (char*)buffer))); c++) {
 				TT_num_max++;
 			}
 		}

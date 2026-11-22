@@ -34,25 +34,25 @@
 
  */
 size_t GENSEARCH_NAME(GENSEARCH_TYPE *__x, size_t __min, size_t __max, GENSEARCH_KEYTYPE __y) {
-	size_t __try;
+	size_t try_;
 
 	if ( GENSEARCH_COMPAREKEYS(GENSEARCH_GETKEY(__x[__min]), 
 				         GENSEARCH_GETKEY(__x[__max])) ) {
 		do {
-			__try = (__min+__max+1)/2;
-			if ( GENSEARCH_COMPAREKEYS(GENSEARCH_GETKEY(__x[__try]), __y) ) {
-				__min = __try;
+			try_ = (__min+__max+1)/2;
+			if ( GENSEARCH_COMPAREKEYS(GENSEARCH_GETKEY(__x[try_]), __y) ) {
+				__min = try_;
 			} else {
-				__max = __try-1;
+				__max = try_-1;
 			} 
 		} while (__max != __min);
 	} else {
 		do {
-			__try = (__min+__max+1)/2;
-			if ( GENSEARCH_COMPAREKEYS(__y, GENSEARCH_GETKEY(__x[__try])) ) {
-				__min = __try;
+			try_ = (__min+__max+1)/2;
+			if ( GENSEARCH_COMPAREKEYS(__y, GENSEARCH_GETKEY(__x[try_])) ) {
+				__min = try_;
 			} else {
-				__max = __try-1;
+				__max = try_-1;
 			} 
 		} while (__max != __min);
 	}

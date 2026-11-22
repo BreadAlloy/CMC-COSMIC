@@ -69,7 +69,7 @@ struct densities density_estimators(int n_points, int *startypes, int len) {
   timeEndSimple(tmpTimeStart, &t_comm);
 
 
-  long* rhoj_idx= calloc(80, sizeof(long));
+  long* rhoj_idx= (long*)calloc(80, sizeof(long));
 
   /* .. and now the number of non-remnants within their half-mass radius */
   //MPI: Fill up the local rho idx array

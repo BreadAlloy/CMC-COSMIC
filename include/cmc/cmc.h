@@ -14,9 +14,11 @@
 #include <gsl/gsl_sort_vector.h>
 #include <gsl/gsl_integration.h>
 #include <string.h>
+extern "C"{
 #include "../common/fitslib.h"
 #include "../common/taus113-v2.h"
 #include "../fewbody-0.24/fewbody.h"
+}
 #include "cmc_core.h"
 #include "CMCConfig.h"
 #include "stdarg.h"

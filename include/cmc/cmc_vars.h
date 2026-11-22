@@ -2,7 +2,7 @@
 
 /* "extern" should be uncommented here when compiling with g++ */
 #ifndef _MAIN_
-#define _EXTERN_ /* extern */
+#define _EXTERN_  extern 
 #else
 #define _EXTERN_
 #endif
@@ -282,9 +282,9 @@ _EXTERN_ char num2[5],filename2[20], tempstr2[20];
 //_EXTERN_ long *new_size;
 //_EXTERN_ int *disp, *len;
 //Temp file handle for debugging
-FILE *ftest;
+_EXTERN_ FILE *ftest;
 //MPI: Some variables to assist debugging
-char num[5],filename[20], tempstr[20];
+_EXTERN_ char num[5],filename[20], tempstr[20];
 //MPI: Variables for detailed timing of the sorting routine and total communication
 _EXTERN_ double t_sort_only, t_sort_lb;
 _EXTERN_ double t_sort_lsort1, t_sort_splitters, t_sort_a2a, t_sort_lsort2, t_sort_oth;

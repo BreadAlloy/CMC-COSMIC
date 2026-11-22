@@ -6,8 +6,9 @@
 #include <math.h>
 #include "cmc.h"
 #include "cmc_vars.h"
+extern "C" {
 #include "bse_wrap.h"
-
+}
 /**
 * @brief Does single single collision
 *

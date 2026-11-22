@@ -1,12 +1,12 @@
 # add the executable
-add_executable(cmc cmc.c)
+add_executable(cmc cmc.cc)
 # add library
-add_library(cmc_library STATIC cmc_bhlosscone.c cmc_binbin.c cmc_binsingle.c cmc_core.c
-              cmc_dynamics.c cmc_dynamics_helper.c cmc_bse_utils.c
-              cmc_evolution_thr.c cmc_fits.c  
-              cmc_io.c cmc_nr.c cmc_orbit.c
-              cmc_remove_star.c cmc_search_grid.c cmc_sort.c cmc_sscollision.c
-              cmc_stellar_evolution.c cmc_utils.c cmc_mpi.c)
+add_library(cmc_library STATIC cmc_bhlosscone.cc cmc_binbin.cc cmc_binsingle.cc cmc_core.cc
+              cmc_dynamics.cc cmc_dynamics_helper.cc cmc_bse_utils.cc
+              cmc_evolution_thr.cc cmc_fits.cc  
+              cmc_io.cc cmc_nr.cc cmc_orbit.cc
+              cmc_remove_star.cc cmc_search_grid.cc cmc_sort.cc cmc_sscollision.cc
+              cmc_stellar_evolution.cc cmc_utils.cc cmc_mpi.cc)
 # Include paths to headers
 include_directories ("${PROJECT_SOURCE_DIR}/include/common")
 include_directories ("${PROJECT_SOURCE_DIR}/include/cmc")

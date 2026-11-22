@@ -1,6 +1,10 @@
 /* -*- linux-c -*- */
 /* vi: set filetype=c.doxygen: */
 /* trivial */
+class test{
+	
+};
+
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>

@@ -6,8 +6,9 @@
 
 #include "cmc.h"
 #include "cmc_vars.h"
+extern "C"{
 #include "bse_wrap.h"
-
+}
 /**
 * @brief This is the same as the stellar_evolution_init, except we're only
 * setting the global BSE properties (the individual star and binary properties
