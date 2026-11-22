@@ -1,0 +1,57 @@
+{
+    "version": 3,
+  "configurePresets": [
+    {
+      "name": "shared",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER" : "mpicc"
+      }
+    },
+    {
+      "name": "debug",
+      "hidden": true,
+      "inherits": "shared",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release",
+      "hidden": true,
+      "inherits": "shared",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "cuda_debug",
+      "hidden": true,
+      "inherits": "shared",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CUDA_DEBUG_FLAGS": "-g -G"
+      }
+    },
+    {
+      "name": "linux-base",
+      "hidden": true
+    },
+    {
+      "name": "linux-debug",
+      "displayName": "Debug",
+      "inherits": [ "linux-base", "debug" ]
+    },
+    {
+      "name": "linux-cuda-debug",
+      "displayName": "DebugCuda",
+      "inherits": [ "linux-base", "cuda_debug" ]
+    },
+    {
+      "name": "linux-release",
+      "displayName": "Release",
+      "inherits": [ "linux-base", "release" ]
+    }
+  ]
+}
