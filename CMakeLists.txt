@@ -17,6 +17,9 @@ endforeach()
 
 project(CMC VERSION 1.0.0 LANGUAGES CXX C Fortran)
 
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 # CMC's C sources predate C23 and rely on pre-C23 semantics — notably empty
 # parameter lists () meaning "unspecified args" rather than (void). GCC 15
 # defaults to C23 (gnu23), which turns those long-standing idioms into hard
