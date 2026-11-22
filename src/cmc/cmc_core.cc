@@ -2,7 +2,7 @@
 /* Various subroutines that caluculate quantities in the core including its 
  * extent according to various definitions */
 #include "cmc.h"
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 
 /**
 * @brief ?

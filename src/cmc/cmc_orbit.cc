@@ -16,7 +16,7 @@
 #include <float.h>
 #include <time.h>
 #include "cmc.h"
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 
 /**
 * @brief ?

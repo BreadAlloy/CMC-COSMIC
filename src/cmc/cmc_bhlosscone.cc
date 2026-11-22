@@ -9,7 +9,7 @@
 #include <string.h>
 #include <gsl/gsl_integration.h>
 #include "cmc.h"
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 
 /**
 * @brief ?

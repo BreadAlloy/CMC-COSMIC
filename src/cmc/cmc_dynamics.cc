@@ -6,7 +6,7 @@
 #include <math.h>
 #include <time.h>
 #include "cmc.h"
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 
 /**
 * @brief core of the code: applies relaxation, does single-single collisions and binary interactions

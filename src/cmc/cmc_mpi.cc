@@ -1,7 +1,7 @@
 /* vi: set filetype=c.doxygen: */
 #include "cmc_mpi.h"
 #include "cmc.h"
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 
 /**
 * @brief Function to find start and end indices for each processor for a loop over N. Makes sure the number of elements each proc works on is an even number. Is a generic function that does not use myid, instead it should be passed through parameter i.

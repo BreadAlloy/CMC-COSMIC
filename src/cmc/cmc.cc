@@ -17,7 +17,7 @@ class test{
 #include <gsl/gsl_rng.h>
 #include "cmc.h"
 #define _MAIN_
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 #include <string.h>
 #include "hdf5.h"
 #include "hdf5_hl.h"

@@ -5,7 +5,7 @@
 #include <zlib.h>
 #include <math.h>
 #include "cmc.h"
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 
 /**
 * @brief calculate the units used

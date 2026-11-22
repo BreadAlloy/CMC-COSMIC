@@ -13,7 +13,7 @@
 #include <gsl/gsl_errno.h>
 #include <gsl/gsl_spline.h>
 #include "cmc.h"
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 #include "hdf5.h"
 #include "hdf5_hl.h"
 

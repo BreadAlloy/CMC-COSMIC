@@ -8,7 +8,7 @@
 #include <time.h>
 #include <string.h>
 #include "cmc.h"
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 
 
 /**

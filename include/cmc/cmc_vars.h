@@ -1,12 +1,14 @@
 /* vi: set filetype=c.doxygen: */
 
-/* "extern" should be uncommented here when compiling with g++ */
+#ifndef PROPER_CMC_VARS_INCLUDE
+    #error "include cmc_globals.h not cmc_vars.h"
+#endif
+
 #ifndef _MAIN_
 #define _EXTERN_  extern 
 #else
 #define _EXTERN_
 #endif
-#include "hdf5.h"
 
 _EXTERN_ clus_struct_t clus;
 _EXTERN_ Etotal_struct_t Etotal;

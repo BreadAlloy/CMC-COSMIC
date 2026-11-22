@@ -16,7 +16,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "cmc.h"
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 #include "hdf5.h"
 #include "hdf5_hl.h"
 

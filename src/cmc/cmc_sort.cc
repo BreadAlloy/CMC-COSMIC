@@ -1,7 +1,7 @@
 /* -*- linux-c -*- */
 
 #include "cmc.h"
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 #include <math.h>
 #include <time.h>
 

@@ -13,7 +13,7 @@
 #endif
 #include <gsl/gsl_rng.h>
 #include "cmc.h"
-#include "cmc_vars.h"
+#include "cmc_globals.h"
 
 /**
 * @brief Copies the properties corresponding to index s_k of the cfd structure to the index d_k of the binary array.
