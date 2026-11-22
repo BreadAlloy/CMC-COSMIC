@@ -1,6 +1,7 @@
 #pragma once
 
 #include "hdf5.h"
+#include "cmc.h"
 
 #define PROPER_CMC_VARS_INCLUDE
 

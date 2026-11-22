@@ -1,5 +1,8 @@
 /* vi: set filetype=c.doxygen: */
 
+#include "cmc.h"
+#include "hdf5.h"
+
 #ifndef PROPER_CMC_VARS_INCLUDE
     #error "include cmc_globals.h not cmc_vars.h"
 #endif

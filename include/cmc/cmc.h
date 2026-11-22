@@ -1,3 +1,4 @@
+#pragma once
 /* -*- linux-c -*- */
 /* vi: set filetype=c.doxygen: */
 
